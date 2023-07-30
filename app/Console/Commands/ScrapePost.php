@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Post;
 use Illuminate\Console\Command;
 use Weidner\Goutte\GoutteFacade;
+use Illuminate\Support\Facades\Artisan;
 
 class ScrapePost extends Command
 {
@@ -32,6 +33,7 @@ class ScrapePost extends Command
      */
     public function handle()
     {
+        Artisan::call('migrate:refresh');
         // $crawler = GoutteFacade::request('GET', 'https://dantri.com.vn/lao-dong-viec-lam/can-tho-f0-f1-bot-lo-lang-vi-khong-phai-tra-vien-phi-20210829181940605.htm');
         // $title = $crawler->filter('h1.title-page')->each(function ($node) {
         //     return $node->text();
